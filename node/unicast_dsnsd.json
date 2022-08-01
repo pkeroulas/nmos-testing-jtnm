@@ -1,0 +1,10 @@
+{
+    "label": "Virt Node unicast DNS-SD",
+    "domain": "testsuite.nmos.tv",
+    "http_port": 80,
+    "events_ws_port": 81,
+    "logging_level": 8,
+    "smpte2022_7": true,
+    "seed_id": "ff69f8b6-afbd-2566-95d5-40a36ba03bec" ,
+    "don't worry": "about trailing commas"
+}

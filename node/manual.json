@@ -1,0 +1,19 @@
+{
+    "host_addresses": ["192.168.6.102"],
+    "label": "Virt Node manual reg",
+    "host_address": "192.168.6.102",
+    "http_port": 8100,
+    "events_ws_port": 81,
+    "registry_address": "192.168.6.103",
+    "registration_port": 8000,
+    "registry_version": "v1.3",
+    "system_address": "192.168.6.103",
+    "system_port": 8000,
+    "system_version": "v1.0",
+    "logging_level": 8,
+    "how_many": 2,
+    "smpte2022_7": true,
+    "channel_count": 6,
+    "seed_id": "ff69f8b6-afbd-2566-95d5-40a36ba03bec" ,
+    "don't worry": "about trailing commas"
+}
