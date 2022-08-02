@@ -19,6 +19,7 @@ services:
     container_name: nmos-virtnode
     hostname: nmos-virtnode
     domainname: testsuite.nmos.tv
+    dns_search: testsuite.nmos.tv
     ports:
     - "80-81:80-81"
     volumes:
@@ -37,6 +38,10 @@ services:
     container_name: nmos-testing
     hostname: nmos-testing
     domainname: testsuite.nmos.tv
+    entrypoint: |
+       /bin/bash -c "/etc/init.d/dbus start;
+       /etc/init.d/avahi-daemon start;
+       python3 nmos-test.py"
     ports:
     - "5000:5000"
     volumes:
