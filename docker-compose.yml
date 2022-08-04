@@ -30,25 +30,7 @@ services:
       external:
         ipv4_address: '192.168.6.102'
     dns:
-      - '192.168.6.103'
-
-  # Create AMWA NMOS Testing container instance
-  nmos-testing:
-    image: amwa/nmos-testing:latest
-    container_name: nmos-testing
-    hostname: nmos-testing
-    domainname: testsuite.nmos.tv
-    entrypoint: |
-       /bin/bash -c "/etc/init.d/dbus start;
-       /etc/init.d/avahi-daemon start;
-       python3 nmos-test.py"
-    ports:
-    - "5000:5000"
-    volumes:
-    - "./UserConfig.py:/config/UserConfig.py"
-    networks:
-      external:
-        ipv4_address: '192.168.6.103'
+      - '192.168.6.100'
 
 networks:
     external:
@@ -59,8 +41,3 @@ networks:
         ipam:
             config:
             - subnet: 192.168.6.0/24
-              #internal:
-              #    driver: bridge
-              #    ipam:
-              #        config:
-              #        - subnet: 192.168.6.0/24
