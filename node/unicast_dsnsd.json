@@ -3,6 +3,8 @@
     "domain": "testsuite.nmos.tv",
     "http_port": 80,
     "events_ws_port": 81,
+    "discovery_backoff_max": 10,
+    "discovery_backoff_factor": 1,
     "logging_level": 8,
     "smpte2022_7": true,
     "seed_id": "ff69f8b6-afbd-2566-95d5-40a36ba03bec" ,
