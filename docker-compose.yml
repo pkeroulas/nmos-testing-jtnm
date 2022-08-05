@@ -31,17 +31,20 @@ services:
         ipv4_address: '192.168.6.102'
     dns:
       - '192.168.6.103'
+    depends_on:
+      - nmos-testing
 
   # Create AMWA NMOS Testing container instance
   nmos-testing:
-    image: amwa/nmos-testing:latest
+    image: amwa/nmos-testing:jtnm.aug2022-v1.0
     container_name: nmos-testing
     hostname: nmos-testing
     domainname: testsuite.nmos.tv
     entrypoint: |
        /bin/bash -c "/etc/init.d/dbus start;
        /etc/init.d/avahi-daemon start;
-       python3 nmos-test.py"
+       python3 nmos-test.py;
+       python3 nmos-testing-facade.py"
     ports:
     - "5000:5000"
     volumes:
