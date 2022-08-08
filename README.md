@@ -4,5 +4,10 @@ Based on [Easy-NMOS](https://github.com/rhastie/easy-nmos) + DHCP server - regis
 
 ## Config
 
-Discovery method: `DNS-SD`
+Discovery method: unicast DNS-SD
+
 Domain: `testsuite.nmos.tv`
+
+## DHCP
+
+`./dhcp/` is mounted as volume to show the current leases.

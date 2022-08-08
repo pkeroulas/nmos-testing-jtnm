@@ -22,8 +22,7 @@ services:
     entrypoint: |
        /bin/bash -c "/etc/init.d/dbus start;
        /etc/init.d/avahi-daemon start;
-       python3 nmos-test.py;
-       python3 nmos-testing-facade.py"
+       python3 nmos-test.py & python3 nmos-testing-facade.py"
     ports:
     - "5000:5000"
     volumes:
