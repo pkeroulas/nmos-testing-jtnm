@@ -24,3 +24,4 @@ CONFIG.DNS_SD_MODE = 'unicast'
 CONFIG.DNS_DOMAIN = 'testsuite.nmos.tv'
 CONFIG.DNS_UPSTREAM_IP = '192.168.6.1'
 #CONFIG.DNS_SD_ADVERT_TIMEOUT = 30 # sufficient to cover the DuT’s boot time
+print(CONFIG)
