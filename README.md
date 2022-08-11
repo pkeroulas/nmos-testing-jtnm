@@ -13,7 +13,10 @@ Based on [Easy-NMOS](https://github.com/rhastie/easy-nmos) + DHCP server - regis
 
 ## Usage
 
+Edit `.env` to supply IPs.
+
 ```
+./setup.sh
 docker-compose up -d
 docker-compose logs -f --tail=50
 [...]
