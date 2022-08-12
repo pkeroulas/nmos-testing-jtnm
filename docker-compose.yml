@@ -8,7 +8,7 @@ services:
     hostname: dhcp-server
     networks:
       external:
-        ipv4_address: '${DHCP_SERVER_IP}'
+        ipv4_address: '${SUBNET_PREFIX}.2'
     volumes:
     - ./dhcp/:/data/
     - ./dhcp/dhcpd.conf:/etc/dhcp/dhcpd.conf
@@ -29,7 +29,7 @@ services:
     - "./UserConfig.py:/config/UserConfig.py"
     networks:
       external:
-        ipv4_address: '${TEST_TOOL_IP}'
+        ipv4_address: '${SUBNET_PREFIX}.3'
 
   # Just a utility for network troubleshooing
   busybox:
@@ -39,7 +39,7 @@ services:
         /bin/sh -c "tail -f /dev/null"
     networks:
       external:
-        ipv4_address: '${BUSYBOX_IP}'
+        ipv4_address: '${SUBNET_PREFIX}.4'
 
 networks:
     external:
@@ -49,4 +49,5 @@ networks:
             parent: '${IFACE}'
         ipam:
             config:
-            - subnet: '${SUBNET_PREFIX}./24'
+            - subnet: '${SUBNET_PREFIX}.0/24'
+              gateway: '${SUBNET_PREFIX}.1'
