@@ -2,21 +2,34 @@
 
 Based on [Easy-NMOS](https://github.com/rhastie/easy-nmos) + DHCP server - registry
 
+Preriquisites:
+* docker version 20.10.12
+* docker-compose version 1.29.2
+
 ## Config
+
+### Constants:
 
 * discovery method: unicast DNS-SD
 * domain: `testsuite.nmos.tv`
+* /24 subnet
 
-## DHCP
+### Variables:
 
-`./dhcp/dhcp.leases` is written by the DHCP server to reflect the current leases.
-
-## Usage
-
-Edit `.env` to supply IPs.
+Edit `.env` to supply the subnet and the network interface.
+And execute the script that modifies `./dhcp/dhcpd.conf` and
+`UserConfig.py`.
 
 ```
+cat .env
+SUBNET_PREFIX=192.168.6
+IFACE=eno2
 ./setup.sh
+```
+
+## Start
+
+```
 docker-compose up -d
 docker-compose logs -f --tail=50
 [...]
@@ -24,7 +37,10 @@ Ctrl+C
 docker=compose down
 ```
 
-## Arista swith operations
+Note that `./dhcp/dhcp.leases` is written by the DHCP server to reflect
+the current leases.
+
+## Arista switch operations
 
 First step: login the switch with ssh.
 
