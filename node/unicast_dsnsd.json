@@ -1,6 +1,6 @@
 {
     "label": "Virt Node unicast DNS-SD",
-    "domain": "testsuite.nmos.tv",
+    "domain": "nmos-testing.jt-nm.org",
     "http_port": 80,
     "events_ws_port": 81,
     "discovery_backoff_max": 10,

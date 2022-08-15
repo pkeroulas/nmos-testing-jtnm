@@ -21,7 +21,7 @@ print('****************************************************************')
 CONFIG.ENABLE_HTTPS = False
 CONFIG.ENABLE_DNS_SD = True
 CONFIG.DNS_SD_MODE = 'unicast'
-CONFIG.DNS_DOMAIN = 'testsuite.nmos.tv'
+CONFIG.DNS_DOMAIN = 'nmos-testing.jt-nm.org'
 CONFIG.DNS_UPSTREAM_IP = '192.168.6.1'
 #CONFIG.DNS_SD_ADVERT_TIMEOUT = 30 # sufficient to cover the DuT’s boot time
 print(CONFIG)

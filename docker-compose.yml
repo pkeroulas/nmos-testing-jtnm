@@ -18,7 +18,7 @@ services:
     image: amwa/nmos-testing:jtnm.aug2022-v1.0
     container_name: nmos-testing
     hostname: nmos-testing
-    domainname: testsuite.nmos.tv
+    domainname: nmos-testing.jt-nm.org
     entrypoint: |
        /bin/bash -c "/etc/init.d/dbus start;
        /etc/init.d/avahi-daemon start;

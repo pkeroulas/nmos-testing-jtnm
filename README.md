@@ -11,7 +11,7 @@ Preriquisites:
 ### Constants:
 
 * discovery method: unicast DNS-SD
-* domain: `testsuite.nmos.tv`
+* domain: `nmos-testing.jt-nm.org`
 * /24 subnet
 
 ### Variables:
