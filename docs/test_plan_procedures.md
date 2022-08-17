@@ -40,9 +40,15 @@ Download the result files and copy into the [private repo](https://github.com/rb
 
 ### 7. Stream/SDP validation
 
-Test plan # A.5
+* Test A.5.1/2:
 
-Specific [IS-05 script](https://github.com/AMWA-TV/nmos-testing/tree/master/utilities/is-05-control) is required.
+This one can be performed in Main env with reference senders and recievers.
+Specific [IS-05 script](https://github.com/pkeroulas/nmos-testing/tree/improve-is-05-control/utilities/is-05-control) is required.
+
+* Test A.5.3: mcast and igmp
+[Check the mcast routes on the switch](../docs/arista_cmd_helper.md#display-mcast-and-igmp).
+
+* Test A.5.4: the SDP from A.5.1/2 should include the source IP filter
 
 ### 9. Restore the DuT in Main env
 
