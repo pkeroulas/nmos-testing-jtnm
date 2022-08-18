@@ -11,7 +11,6 @@ services:
         ipv4_address: '${SUBNET_PREFIX}.2'
     volumes:
     - ./dhcp/:/data/
-    - ./dhcp/:/etc/dhcp/
 
   # Create AMWA NMOS Testing container instance
   nmos-testing:
