@@ -41,3 +41,5 @@ docker=compose down
 
 * [Test plan procedures](./docs/test_plan_procedures.md)
 * [Arista cmd helper](./docs/arista_cmd_helper.md)
+* `./nmos-cpp` can be used for easy testing but the config needs to be
+  ajusted
