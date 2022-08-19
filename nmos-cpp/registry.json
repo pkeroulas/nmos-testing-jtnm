@@ -1,7 +1,7 @@
 {
     "label": "Test-easy-nmos-registry",
-    "host_addresses": ["192.168.6.9"],
-    "host_address": "192.168.6.9",
+    "host_addresses": ["192.168.6.53"],
+    "host_address": "192.168.6.53",
     "pri": 99,
     "logging_level": -20,
     "http_trace": false,
