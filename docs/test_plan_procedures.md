@@ -1,13 +1,29 @@
 # Test plan procedure
 
+This [private repo](https://github.com/rbgodwin-nt/jt-nm-tested-2022)
+will gather all the results, auto and manual. It is organized by folder
+structure: `tested/<vendor>/<device>`
+
+### 0. Get info from the vendor
+
+For management interface:
+- switch port num
+- mac address
+- IP address
+
+IPAM for media interfaces is detailed in the master spreadsheet.
+
 ### 1. Get the initial UUIDs of the DuT
 
 In Main environement, execute [this script](https://github.com/AMWA-TV/nmos-testing/tree/master/utilities/uuid-checker)
-to fetch orginal UUIDs.
+to fetch orginal UUIDs. You may have to execute from your workstation to
+access Main env.
+
 
 ### 2. Move the DuT from Main to NMOS env
 
 Enter the switch connected the DuT and [change the port config](../docs/arista_cmd_helper.md#move-an-endpoint-to-the-nmos-test-environment).
+Ask the vendor for a DuT reboot.
 
 ### 3. IP validation
 
@@ -21,7 +37,8 @@ MAC also be found by [browsing the switch ARP table](../docs/arista_cmd_helper.m
 ### 4. LLDP validation
 
 * Test plan A.1.2
-Enter the switch connected the DuT and [show the LLDP info](../docs/arista_cmd_helper.md#display-the-lldp-chassis-id-and-port-id)
+Enter the management switch connected the DuT and [show the LLDP info](../docs/arista_cmd_helper.md#display-the-lldp-chassis-id-and-port-id)
+Repeat with media swith(es).
 
 ### 5. Verify the consistency UUIDs in NMOS test environment
 

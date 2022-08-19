@@ -14,7 +14,7 @@ services:
 
   # Create AMWA NMOS Testing container instance
   nmos-testing:
-    image: amwa/nmos-testing:jtnm.aug2022-v1.0
+    image: amwa/nmos-testing:jtnm.aug2022-v1.1
     container_name: nmos-testing
     hostname: nmos-testing
     domainname: nmos-testing.jt-nm.org
