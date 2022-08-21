@@ -52,6 +52,16 @@ After the test is performed, remove or rename `uuids.json`.
 
 Download the result files and copy into the [private repo](https://github.com/rbgodwin-nt/jt-nm-tested-2022).
 
+`IS-04 registry APIs`: Before running the test, a node (with resources
+should run and register to the RuT) and a client should create a ws
+subscription:
+`curl --cacert test_data/BCP00301/ca/certs/ca.cert.pem "http://<IP:port>/x-nmos/query/v1.3/subscriptions" -H "Content-Type: application/json" -d "{\"max_update_rate_ms\": 100, \"resource_path\": \"/nodes\", \"params\": {\"label\": \"host1\"}, \"persist\": true, \"secure\": false}" -s`
+
+``
+Channel Mapping
+Open the URL for the Device in the browser e.g. http://172.17.0.3:8012/x-nmos/channelmapping/v1.0/inputs/input0/properties/
+Verify the name and description are readable by a human
+
 ### 8. Restore the DuT in Main env
 
 Enter the switch connected the DuT and [restore the port config](../docs/arista_cmd_helper.md#move-an-endpoint-to-the-nmos-test-environment).
