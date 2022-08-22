@@ -24,4 +24,6 @@ CONFIG.DNS_SD_MODE = 'unicast'
 CONFIG.DNS_DOMAIN = 'nmos-testing.jt-nm.org'
 CONFIG.DNS_UPSTREAM_IP = '192.168.6.1'
 #CONFIG.DNS_SD_ADVERT_TIMEOUT = 30 # sufficient to cover the DuT’s boot time
+CONFIG.DNS_UPSTREAM_IP = '8.8.8.8'
+CONFIG.HTTP_TIMEOUT = 3
 print(CONFIG)
