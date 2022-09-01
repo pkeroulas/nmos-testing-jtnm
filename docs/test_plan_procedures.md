@@ -1,9 +1,5 @@
 # Test plan procedure
 
-This [private repo](https://github.com/rbgodwin-nt/jt-nm-tested-2022)
-will gather all the results, auto and manual. It is organized by folder
-structure: `tested/<vendor>/<device>`
-
 ### 0. Get info from the vendor
 
 For management interface:
@@ -22,7 +18,13 @@ access Main env.
 
 ### 2. Move the DuT from Main to NMOS env
 
+This step consists in exposing our DHCP to provide DNS and NTP to the
+Dut. DNS will then help testing unicast DNS-SD.
+
 Enter the switch connected the DuT and [change the port config](../docs/arista_cmd_helper.md#move-an-endpoint-to-the-nmos-test-environment).
+(media only if dns-sd dicscovery is supported because the /30 address
+are routed so thay can access anything)
+
 Ask the vendor for a DuT reboot.
 
 ### 3. IP validation
@@ -50,17 +52,25 @@ After the test is performed, remove or rename `uuids.json`.
 
 [Grid for quick view.](https://specs.amwa.tv/nmos-testing/)
 
-Download the result files and copy into the [private repo](https://github.com/rbgodwin-nt/jt-nm-tested-2022).
+MAKE SURE there is no rogue node or registry that could interfer with the test.
 
-`IS-04 registry APIs`: Before running the test, a node (with resources
-should run and register to the RuT) and a client should create a ws
-subscription:
+* `IS-04-01`
+If dns-sd isn't supported: the node under test should register using port 5101.
+
+
+* `IS-04 registry APIs`
+Before running the test, a node (with resources should run and register
+to the RuT) and a client should create a ws subscription:
 `curl --cacert test_data/BCP00301/ca/certs/ca.cert.pem "http://<IP:port>/x-nmos/query/v1.3/subscriptions" -H "Content-Type: application/json" -d "{\"max_update_rate_ms\": 100, \"resource_path\": \"/nodes\", \"params\": {\"label\": \"host1\"}, \"persist\": true, \"secure\": false}" -s`
 
-``
-Channel Mapping
-Open the URL for the Device in the browser e.g. http://172.17.0.3:8012/x-nmos/channelmapping/v1.0/inputs/input0/properties/
+* `IS-08 Channel Mapping`
+Open the URL for the Device in the browser e.g. http://<IP>/x-nmos/channelmapping/v1.0/inputs/input0/properties/
 Verify the name and description are readable by a human
+
+* Results
+Download the json files and copy into the [private repo](https://github.com/rbgodwin-nt/jt-nm-tested-2022).
+It is organized by folder structure: `tested/<vendor>/<device>`
+The json have to be zipped and named `<vendor>.<device>.zip`
 
 ### 8. Restore the DuT in Main env
 
@@ -70,9 +80,12 @@ Enter the switch connected the DuT and [restore the port config](../docs/arista_
 
 * Test A.5.1/2:
 This one can be performed in Main env with reference senders and receivers.
-Specific [IS-05 script](https://github.com/pkeroulas/nmos-testing/tree/improve-is-05-control/utilities/is-05-control) is required.
+Specific [IS-05 script](https://github.com/pkeroulas/nmos-testing/tree/improve-is-05-control/utilities/is-05-control) is required. or just use Riedel NMOS explorer.
+
 
 * Test A.5.3: mcast and igmp
 [Check the mcast routes on the switch](../docs/arista_cmd_helper.md#display-mcast-and-igmp).
 
-* Test A.5.4: the SDP from A.5.1/2 should include the source IP filter
+* Test A.5.4: the SDP from A.5.1/2 should include the source IP filter (receivers)
+Download the SDP from the senders, edit the source IP manually push the
+fake SDP to the sender. The receiver should not subscribre to the multicast.
